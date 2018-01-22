@@ -105,6 +105,7 @@ jobs:
       DATABASE_USERNAME: {{sandbox-allocations-database-username}}
       DATABASE_PASSWORD: {{sandbox-allocations-database-password}}
       current_app_name: tracker-allocations
+      MIGRATION_PATH: allocations-database
   - put: cf
     params:
       manifest: pal-tracker/manifest-allocations.yml
@@ -133,6 +134,7 @@ jobs:
       DATABASE_USERNAME: {{sandbox-backlog-database-username}}
       DATABASE_PASSWORD: {{sandbox-backlog-database-password}}
       current_app_name: tracker-backlog
+      MIGRATION_PATH: backlog-database
   - put: cf
     params:
       manifest: pal-tracker/manifest-backlog.yml
@@ -161,6 +163,7 @@ jobs:
       DATABASE_USERNAME: {{sandbox-registration-server-database-username}}
       DATABASE_PASSWORD: {{sandbox-registration-server-database-password}}
       current_app_name: tracker-registration
+      MIGRATION_PATH: registration-database
   - put: cf
     params:
       manifest: pal-tracker/manifest-registration.yml
@@ -189,6 +192,7 @@ jobs:
       DATABASE_USERNAME: {{sandbox-timesheets-database-username}}
       DATABASE_PASSWORD: {{sandbox-timesheets-database-password}}
       current_app_name: tracker-timesheets
+      MIGRATION_PATH: timesheets-database
   - put: cf
     params:
       manifest: pal-tracker/manifest-timesheets.yml
