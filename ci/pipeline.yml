@@ -96,6 +96,9 @@ jobs:
       manifest: pal-tracker/manifest-allocations.yml
       path: allocations-artifacts/allocations-server*.jar
       current_app_name: tracker-allocations
+      MYSQL_IP: {{mysql-ip}}
+  - task: migrate database
+    file: pal-tracker-distributed/ci/migrateDatabase.yml
 
 - name: deploy-backlog
   plan:
@@ -109,6 +112,9 @@ jobs:
       manifest: pal-tracker/manifest-backlog.yml
       path: backlog-artifacts/backlog-server*.jar
       current_app_name: tracker-backlog
+      MYSQL_IP: {{mysql-ip}}
+  - task: migrate database
+    file: pal-tracker-distributed/ci/migrateDatabase.yml
 
 - name: deploy-registration
   plan:
@@ -122,6 +128,9 @@ jobs:
       manifest: pal-tracker/manifest-registration.yml
       path: registration-artifacts/registration-server*.jar
       current_app_name: tracker-registration
+      MYSQL_IP: {{mysql-ip}}
+  - task: migrate database
+    file: pal-tracker-distributed/ci/migrateDatabase.yml
 
 - name: deploy-timesheets
   plan:
@@ -135,3 +144,6 @@ jobs:
       manifest: pal-tracker/manifest-timesheets.yml
       path: timesheets-artifacts/timesheets-server*.jar
       current_app_name: tracker-timesheets
+      MYSQL_IP: {{mysql-ip}}
+  - task: migrate database
+    file: pal-tracker-distributed/ci/migrateDatabase.yml
