@@ -185,9 +185,9 @@ jobs:
       CF_ORG: {{cf-org}}
       CF_SPACE: review
       MYSQL_IP: {{mysql-ip}}
-      DATABASE_NAME: {{sandbox-database-name}}
-      DATABASE_USERNAME: {{timesheets-sandbox-database-username}}
-      DATABASE_PASSWORD: {{timesheets-sandbox-database-password}}
+      DATABASE_NAME: {{sandbox-timesheets-database-name}}
+      DATABASE_USERNAME: {{sandbox-timesheets-database-username}}
+      DATABASE_PASSWORD: {{sandbox-timesheets-database-password}}
       current_app_name: tracker-timesheets
   - put: cf
     params:
