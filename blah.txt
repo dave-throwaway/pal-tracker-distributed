@@ -1,4 +1,4 @@
-./gradlew submitCloudNativeDeveloperDistributedSystemWithServiceDiscovery -PregistrationServerUrl=http://registration-pal-dcs.apps.pikes.pal.pivotal.io -PbacklogServerUrl=http://backlog-pal-dcs.apps.pikes.pal.pivotal.io -PallocationsServerUrl=http://allocations-pal-dcs.apps.pikes.pal.pivotal.io -PtimesheetsServerUrl=http://timesheets-pal-dcs.apps.pikes.pal.pivotal.io
+./gradlew submitCloudNativeDeveloperDistributedSystemWithCircuitBreaker -PregistrationServerUrl=http://registration-pal-dcs.apps.pikes.pal.pivotal.io -PbacklogServerUrl=http://backlog-pal-dcs.apps.pikes.pal.pivotal.io -PallocationsServerUrl=http://allocations-pal-dcs.apps.pikes.pal.pivotal.io -PtimesheetsServerUrl=http://timesheets-pal-dcs.apps.pikes.pal.pivotal.io
 
 curl -i -XPOST -H"Content-Type: application/json" localhost:8083/registration -d'{"name": "Pete"}'
 curl -i localhost:8083/accounts?ownerId=1
@@ -11,3 +11,9 @@ curl -i -XPOST -H"Content-Type: application/json" localhost:8081/allocations/ -d
 curl -i -XPOST -H"Content-Type: application/json" localhost:8081/allocations/ -d'{"projectId": 4, "userId": 1, "firstDay": "2015-05-17", "lastDay": "2015-05-18"}'
 
 curl -i -XPOST -H"Content-Type: application/json" localhost:8081/allocations/ -d'{"projectId": 3, "userId": 1, "firstDay": "2015-05-17", "lastDay": "2015-05-18"}'
+
+curl -i registration-pal-dcs.apps.pikes.pal.pivotal.io/accounts?ownerId=1
+
+token: 692e0d29-5e82-4997-ae72-66d3eaa5c315
+
+curl localhost:8083 -H"Authorization: Bearer 692e0d29-5e82-4997-ae72-66d3eaa5c315"
